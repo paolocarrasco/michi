@@ -2,12 +2,11 @@ package es.com.paolohelena;
 
 import org.junit.Test;
 
-import java.util.regex.Pattern;
-
 import static org.junit.Assert.*;
 
 public class MichiTest {
     Michi michi = new Michi();
+
     @Test
     public void printGridShouldRenderTheGrid() {
         String gridToPrint = michi.printGrid();
@@ -34,7 +33,19 @@ public class MichiTest {
         michi.setNewPositionHuman(2,2);
     }
 
+    @Test
+    public void setNewPositionRobotSetsPositionInAnEmptySpace() {
+        michi.setNewPositionHuman(0,0);
+        michi.setNewPositionHuman(1,0);
+        michi.setNewPositionHuman(2,0);
+        michi.setNewPositionHuman(1,1);
+        michi.setNewPositionHuman(1,2);
+        michi.setNewPositionHuman(2,1);
+        michi.setNewPositionHuman(2,2);
+        michi.setNewPositionRobot();
+        michi.setNewPositionRobot();
 
-
-
+        assertEquals(2, michi.printGrid().chars().filter(ch -> ch == 'O').count());
+        assertEquals(7, michi.printGrid().chars().filter(ch -> ch == 'X').count());
+    }
 }

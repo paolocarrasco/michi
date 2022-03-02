@@ -11,25 +11,25 @@ public class Michi {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (michiGame[i][j] == null) {
-
                     grid += "___|";
-                }else{
-                    grid +="_"+michiGame[i][j]+"_|";
-
-
+                } else {
+                    grid += "_" + michiGame[i][j] + "_|";
                 }
 
             }
-            grid = grid.replaceAll("(\\|)$","");
+            grid = grid.replaceAll("(\\|)$", "");
             grid += "\n";
         }
         return grid;
     }
 
     public void setNewPositionHuman(int x, int y) {
-        michiGame[x][y] = "X";
-
-
+        if (michiGame[x][y] == null) {
+            michiGame[x][y] = "X";
+        }
+        else {
+            throw new InvalidPositionException();
+        }
     }
 
     public void setNewPositionRobot() {
