@@ -1,5 +1,7 @@
 package es.com.paolohelena;
 
+import java.util.Random;
+
 public class Michi {
 
     private String[][] michiGame = new String[3][3];
@@ -31,6 +33,8 @@ public class Michi {
     }
 
     public void setNewPositionRobot() {
-        michiGame[2][1] = "O";
+        int x = new Random().nextInt(3);
+        int y = new Random().nextInt(3);
+        michiGame[x][y] = "O";
     }
 }

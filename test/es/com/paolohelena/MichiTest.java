@@ -25,7 +25,13 @@ public class MichiTest {
     @Test
     public void setNewStateInGridWhenSetNewPositionRobot() {
         michi.setNewPositionRobot();
-        assertTrue(michi.printGrid().indexOf("_O_") >= 0);
+        assertTrue(michi.printGrid().contains("_O_"));
+    }
+
+    @Test(expected = InvalidPositionException.class)
+    public void throwErrorIfRenderExistingPositionInGrid() {
+        michi.setNewPositionHuman(2,2);
+        michi.setNewPositionHuman(2,2);
     }
 
 
