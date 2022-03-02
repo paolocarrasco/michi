@@ -5,23 +5,32 @@ public class Michi {
     private String[][] michiGame = new String[3][3];
 
     public String printGrid() {
-        String grid = " ";
+        String grid = "";
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (michiGame[i][j] == null) {
+
                     grid += "___|";
                 }else{
-                    grid += "_x_|";
+                    grid +="_"+michiGame[i][j]+"_|";
+
+
                 }
 
             }
+            grid = grid.replaceAll("(\\|)$","");
+            grid += "\n";
         }
         return grid;
     }
 
     public void setNewPositionHuman(int x, int y) {
-        michiGame[2][1] = "X";
+        michiGame[x][y] = "X";
 
 
+    }
+
+    public void setNewPositionRobot() {
+        michiGame[2][1] = "O";
     }
 }
