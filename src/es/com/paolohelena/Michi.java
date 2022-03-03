@@ -5,6 +5,7 @@ import java.util.Random;
 public class Michi {
 
     private String[][] michiGame = new String[3][3];
+    private int count = 0;
 
     public String printGrid() {
         String grid = "";
@@ -26,6 +27,7 @@ public class Michi {
     public void setNewPositionHuman(int x, int y) {
         if (michiGame[x][y] == null) {
             michiGame[x][y] = "X";
+            this.count++;
         }
         else {
             throw new InvalidPositionException();
@@ -35,6 +37,16 @@ public class Michi {
     public void setNewPositionRobot() {
         int x = new Random().nextInt(3);
         int y = new Random().nextInt(3);
-        michiGame[x][y] = "O";
+        if (michiGame[x][y] == null) {
+            michiGame[x][y] = "O";
+            this.count++;
+        }else{
+            if (this.count < 9){
+                setNewPositionRobot();
+            } else {
+                throw new FullTableException();
+            }
+
+        }
     }
 }

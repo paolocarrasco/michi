@@ -33,7 +33,7 @@ public class MichiTest {
         michi.setNewPositionHuman(2,2);
     }
 
-    @Test
+    @Test(expected = FullTableException.class)
     public void setNewPositionRobotSetsPositionInAnEmptySpace() {
         michi.setNewPositionHuman(0,0);
         michi.setNewPositionHuman(1,0);
@@ -42,10 +42,11 @@ public class MichiTest {
         michi.setNewPositionHuman(1,2);
         michi.setNewPositionHuman(2,1);
         michi.setNewPositionHuman(2,2);
+        michi.setNewPositionHuman(0,2);
         michi.setNewPositionRobot();
         michi.setNewPositionRobot();
 
-        assertEquals(2, michi.printGrid().chars().filter(ch -> ch == 'O').count());
-        assertEquals(7, michi.printGrid().chars().filter(ch -> ch == 'X').count());
+        assertEquals(1, michi.printGrid().chars().filter(ch -> ch == 'O').count());
+        assertEquals(8, michi.printGrid().chars().filter(ch -> ch == 'X').count());
     }
 }
