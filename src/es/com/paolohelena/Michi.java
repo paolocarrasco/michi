@@ -51,6 +51,6 @@ public class Michi {
     }
 
     public boolean isGameOver() {
-        return false;
+        return this.count == 9;
     }
 }

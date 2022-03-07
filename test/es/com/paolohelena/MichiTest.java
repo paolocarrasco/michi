@@ -65,4 +65,17 @@ public class MichiTest {
 
         assertTrue(michi.isGameOver());
     }
+    @Test
+    public void returnTrueWhenWeGotAWinner() {
+        michi.setNewPositionHuman(0,0);
+        michi.setNewPositionHuman(1,0);
+        michi.setNewPositionHuman(2,0);
+
+        assertTrue(michi.isGameOver());
+
+    }
+
+
+
+
 }
