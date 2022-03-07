@@ -8,7 +8,7 @@ public class Michi {
     private int count = 0;
 
     public String printGrid() {
-        String grid = "";
+        var grid = "";
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (michiGame[i][j] == null) {
@@ -35,8 +35,8 @@ public class Michi {
     }
 
     public void setNewPositionRobot() {
-        int x = new Random().nextInt(3);
-        int y = new Random().nextInt(3);
+        var x = new Random().nextInt(3);
+        var y = new Random().nextInt(3);
         if (michiGame[x][y] == null) {
             michiGame[x][y] = "O";
             this.count++;
@@ -55,12 +55,13 @@ public class Michi {
             return true;
         } else {
             for (int y = 0; y < 3; y++) {
-                if (michiGame[0][y] == "X" && michiGame[1][y] == "X" && michiGame[2][y] == "X") {
+                var hasWinGameHorizontal = (michiGame[0][y] == "X" && michiGame[1][y] == "X" && michiGame[2][y] == "X");
+                var hasWinGameVertical = (michiGame[y][0] == "X" && michiGame[y][1] == "X" && michiGame[y][2] == "X");
+                if (hasWinGameHorizontal||hasWinGameVertical){
                     return true;
                 }
             }
-
-            return false;
         }
+        return false;
     }
 }

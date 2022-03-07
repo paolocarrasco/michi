@@ -122,4 +122,23 @@ public class MichiTest {
 
         assertTrue(michi.isGameOver());
     }
+
+    @Test
+    public void returnTrueWhenWeGotAWinnerInDiagonalAscending() {
+        michi.setNewPositionHuman(2, 2);
+        michi.setNewPositionHuman(1, 1);
+        michi.setNewPositionHuman(0, 0);
+
+        assertTrue(michi.isGameOver());
+    }
+
+    @Test
+    public void returnTrueWhenWeGotAWinnerInDiagonalDescending() {
+
+        michi.setNewPositionHuman(2, 0);
+        michi.setNewPositionHuman(1, 1);
+        michi.setNewPositionHuman(0, 2);
+
+        assertTrue(michi.isGameOver());
+    }
 }
