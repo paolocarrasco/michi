@@ -1,6 +1,9 @@
 package es.com.paolohelena;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
 import static org.junit.Assert.*;
 
@@ -65,17 +68,58 @@ public class MichiTest {
 
         assertTrue(michi.isGameOver());
     }
+
     @Test
-    public void returnTrueWhenWeGotAWinner() {
+    public void returnTrueWhenWeGotAWinnerInHorizontal1() {
         michi.setNewPositionHuman(0,0);
         michi.setNewPositionHuman(1,0);
         michi.setNewPositionHuman(2,0);
 
         assertTrue(michi.isGameOver());
-
     }
 
+    @Test
+    public void returnTrueWhenWeGotAWinnerInHorizontal2() {
+        michi.setNewPositionHuman(0,1);
+        michi.setNewPositionHuman(1,1);
+        michi.setNewPositionHuman(2,1);
 
+        assertTrue(michi.isGameOver());
+    }
 
+    @Test
+    public void returnTrueWhenWeGotAWinnerInHorizontal3() {
+        michi.setNewPositionHuman(0,2);
+        michi.setNewPositionHuman(1,2);
+        michi.setNewPositionHuman(2,2);
 
+        assertTrue(michi.isGameOver());
+    }
+
+    @Test
+    public void returnTrueWhenWeGotAWinnerInVertical1() {
+        michi.setNewPositionHuman(0, 0);
+        michi.setNewPositionHuman(0, 1);
+        michi.setNewPositionHuman(0, 2);
+
+        assertTrue(michi.isGameOver());
+    }
+
+    @Test
+    public void returnTrueWhenWeGotAWinnerInVertical2() {
+        michi.setNewPositionHuman(1, 0);
+        michi.setNewPositionHuman(1, 1);
+        michi.setNewPositionHuman(1, 2);
+
+        assertTrue(michi.isGameOver());
+    }
+
+    @Test
+    public void returnTrueWhenWeGotAWinnerInVertical3() {
+        michi.setNewPositionHuman(2, 0);
+        michi.setNewPositionHuman(2, 1);
+        michi.setNewPositionHuman(2, 2);
+
+        assertTrue(michi.isGameOver());
+    }
 }

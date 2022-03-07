@@ -51,6 +51,16 @@ public class Michi {
     }
 
     public boolean isGameOver() {
-        return this.count == 9;
+        if (this.count == 9) {
+            return true;
+        } else {
+            for (int y = 0; y < 3; y++) {
+                if (michiGame[0][y] == "X" && michiGame[1][y] == "X" && michiGame[2][y] == "X") {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
