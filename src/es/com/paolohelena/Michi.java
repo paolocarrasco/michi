@@ -49,4 +49,8 @@ public class Michi {
 
         }
     }
+
+    public boolean isGameOver() {
+        return false;
+    }
 }

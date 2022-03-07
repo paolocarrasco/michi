@@ -49,4 +49,20 @@ public class MichiTest {
         assertEquals(1, michi.printGrid().chars().filter(ch -> ch == 'O').count());
         assertEquals(8, michi.printGrid().chars().filter(ch -> ch == 'X').count());
     }
+
+    @Test
+    public void returnFalseIfGameCanContinue() {
+        michi.setNewPositionRobot();
+
+        assertFalse(michi.isGameOver());
+    }
+
+    @Test
+    public void returnTrueIfTheTableIsFull() {
+        for (int i = 0; i < 9; i++) {
+            michi.setNewPositionRobot();
+        }
+
+        assertTrue(michi.isGameOver());
+    }
 }
