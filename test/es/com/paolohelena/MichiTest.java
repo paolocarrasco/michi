@@ -138,7 +138,22 @@ public class MichiTest {
         michi.setNewPositionHuman(2, 0);
         michi.setNewPositionHuman(1, 1);
         michi.setNewPositionHuman(0, 2);
-
         assertTrue(michi.isGameOver());
     }
+
+    @Test
+    public void returnTrueIfRobotWin() {;
+        michi.setNewPositionRobot();
+        michi.setNewPositionRobot();
+        michi.setNewPositionRobot();
+        michi.setNewPositionRobot();
+        michi.setNewPositionRobot();
+        michi.setNewPositionRobot();
+        michi.setNewPositionRobot();
+
+        String gridToPrint = michi.printGrid();
+        System.out.println(gridToPrint);
+        assertTrue(michi.isGameOver());
+    }
+
 }
