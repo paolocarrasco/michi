@@ -142,18 +142,42 @@ public class MichiTest {
     }
 
     @Test
-    public void returnTrueIfRobotWin() {;
-        michi.setNewPositionRobot();
-        michi.setNewPositionRobot();
-        michi.setNewPositionRobot();
-        michi.setNewPositionRobot();
-        michi.setNewPositionRobot();
-        michi.setNewPositionRobot();
-        michi.setNewPositionRobot();
+    public void returnTrueIfRobotWin() {
+        for (int i = 0; i < 7; i++) {
+            michi.setNewPositionRobot();
+        }
 
-        String gridToPrint = michi.printGrid();
-        System.out.println(gridToPrint);
         assertTrue(michi.isGameOver());
+    }
+
+    @Test
+    public void showRobotAsWinnerIfTheyWon() {
+        for (int i = 0; i < 7; i++) {
+            michi.setNewPositionRobot();
+        }
+
+        assertEquals("Congrats to the best of all the artificial intelligences, it deserves its throne", michi.printWinner());
+    }
+
+    @Test
+    public void showHumanAsWinnerIfTheyWon() {
+        michi.setNewPositionHuman(0,1);
+        michi.setNewPositionHuman(1,1);
+        michi.setNewPositionHuman(2,1);
+
+        assertEquals("Congrats to the human, you are so fuck$%$ awesome", michi.printWinner());
+    }
+    @Test
+    public void showHumanAndRobotAsTie() {
+        michi.setNewPositionHuman(0,1);
+        michi.setNewPositionHuman(0,2);
+        michi.setNewPositionHuman(1,0);
+        michi.setNewPositionHuman(2,2);
+        for (int i = 0; i < 5; i++) {
+            michi.setNewPositionRobot();
+        }
+
+        assertEquals("Both are genius, try again", michi.printWinner());
     }
 
 }
